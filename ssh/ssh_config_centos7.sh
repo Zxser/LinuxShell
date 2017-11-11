@@ -1,8 +1,4 @@
 #!/bin/bash
-## SSH   2016-07-22
-## http://www.aqzt.com
-##email: ppabc@qq.com
-##robert yu
 ##centos 7
 
 
