@@ -1,8 +1,5 @@
 #!/bin/bash
-## ansible_playbook  2016-07-07
-## http://www.aqzt.com
-##email: ppabc@qq.com
-##robert yu
+#Email:meng352247816@outlook.com
 ##centos 6
 
 ##测试新建文件a.yml
