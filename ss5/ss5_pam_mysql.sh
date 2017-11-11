@@ -1,8 +1,4 @@
 #!/bin/bash
-## ss5实现socke代理  2016-08-10
-## http://www.aqzt.com
-## email: ppabc@qq.com
-## robert yu
 ## centos 7
 
 wget http://jaist.dl.sourceforge.net/project/ss5/ss5/3.8.9-8/ss5-3.8.9-8.tar.gz
