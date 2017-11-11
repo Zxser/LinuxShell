@@ -1,11 +1,5 @@
 #!/bin/bash
-#
-###
-# Filename: install_cobbler.el6.sh
-# Author: roguo.wei - roguo.wei@gmail.com
-# Description: 
-# Last Modified: 2017-04-07 10:20
-# Version: 1.0
+#Email:meng352247816@outlook.com
 ###
 
 server_ip=10.10.2.100
