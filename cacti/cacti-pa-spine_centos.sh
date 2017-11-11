@@ -38,9 +38,9 @@
 #		ssl v0.1
 #		domains v0.1
 # 5) Ntop
-# Make by Patrick.Ru @ China
-# E-Mail : patrick.ru@hotmail.com
-# Date : 25-Jun-2011
+
+#Email:meng352247816@outlook.com
+
 
 # config for the rpmforge-release
 echo $(date) --\> configing for the rpmforge-release... >> /var/log/cacti_install.log
