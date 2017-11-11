@@ -1,8 +1,5 @@
 #!/bin/bash
-## ansible_nagios_ss  2017-01-13
-## http://www.aqzt.com
-## email: ppabc@qq.com
-## robert yu
+#Email:meng352247816@outlook.com
 ## centos 6
 
 ps -ef | grep 'nagios' | grep 'nrpe' | grep -v 'grep' | awk '{print $2}' | xargs kill
