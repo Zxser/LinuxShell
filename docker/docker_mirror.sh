@@ -1,8 +1,6 @@
 #!/bin/bash
-## Docker配置 换镜像源  2017-03-15
-## http://www.aqzt.com
-## email: ppabc@qq.com
-## robert yu
+## Docker配置 换镜像源 
+#Email:meng352247816@outlook.com
 ## redhat 7
 
 ##cp -n /lib/systemd/system/docker.service /etc/systemd/system/docker.service
