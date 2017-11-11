@@ -1,9 +1,7 @@
 #/bin/bash
 #########################################
 ## LINUX自动分区  处理单块磁盘有未分区空间 2016-09-01
-## http://www.aqzt.com
-## email: ppabc@qq.com
-## robert yu
+##Email:meng352247816@outlook.com
 ## centos 6
 #########################################
 
