@@ -1,8 +1,4 @@
 #!/bin/bash
-## pigz  2016-09-22
-## http://www.aqzt.com
-##email: ppabc@qq.com
-##robert yu
 ##centos 6
 ## 
 
