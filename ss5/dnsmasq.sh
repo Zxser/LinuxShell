@@ -1,8 +1,4 @@
 #!/bin/bash
-## dnsmasq  2017-02-08
-## http://www.aqzt.com
-## email: ppabc@qq.com
-## robert yu
 ## centos 7
 
 yum install dnsmasq -y
