@@ -1,8 +1,5 @@
 #!/bin/bash
-## git 2016-08-30
-## http://www.aqzt.com
-##email: ppabc@qq.com
-##robert yu
+##Email:meng352247816@outlook.com
 ##centos 6和centos 7
 
 #安装git图形化工具GitExtensions
