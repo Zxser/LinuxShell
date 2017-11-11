@@ -1,9 +1,8 @@
 # Quick-Installation-ZABBIX
 
 ## zabbix安装脚本
-### 脚本作者:火星小刘 
-### web:www.huoxingxiaoliu.com 
-### email:xtlyk@163.com
+### 脚本作者:Linux-MIY
+### email:meng352247816@outlook.com
 
  * 要求纯净centos6/7系统（强烈建议用7，用6的话安装非常缓慢）
  * 关闭防火墙
@@ -53,7 +52,7 @@
 [graphtrees github](https://github.com/OneOaaS/graphtrees)  
 [graphtrees 实现效果](http://t.cn/RqAeAxT)  
 
-### 2015-11-20更新  
+### 2017-11-20更新  
 1. agent-install.sh增加wget安装  
 2. 升级zabbix到2.4.7  
 3. server-install.sh复制zabbix-2.4.7.tar.gz到/var/www/html/zabbix，agent-install.sh从服务端调取zabbix-2.4.7.tar.gz安装包
