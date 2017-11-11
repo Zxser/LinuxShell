@@ -1,8 +1,5 @@
 #!/bin/bash
-## redhat7.2配置yum源  2017-03-13
-## http://www.aqzt.com
-## email: ppabc@qq.com
-## robert yu
+#Email:meng352247816@outlook.com
 ## redhat 7
 
 yum update
