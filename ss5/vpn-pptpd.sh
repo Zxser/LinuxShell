@@ -1,4 +1,4 @@
-# this script was written by diahosting and edited by ctohome, free to use
+
 
 mkdir -p /backup/www.ctohome.com/
 cd /backup/www.ctohome.com/
