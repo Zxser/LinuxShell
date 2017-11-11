@@ -1,8 +1,5 @@
 #!/bin/bash
-## glibc 2016-07-8
-## http://www.aqzt.com
-##email: ppabc@qq.com
-##robert yu
+##Email:meng352247816@outlook.com
 ##centos 6
 ##解决libc.so.6: version `GLIBC_2.14' not found问题
 
