@@ -1,6 +1,5 @@
 #!/bin/bash
 ## SSH持久化socket
-http://www.laiwu.cn/meililaiwu/cunzhuang/laichengqu/
 
 ##SSH持久化socket
 cat >/home/php/.ssh/config<<EOF
