@@ -1,8 +1,4 @@
 #!/bin/bash
-##  2016-06-22
-## http://www.aqzt.com
-##email: ppabc@qq.com
-##robert yu
 ##centos 6
 
 yum install -y nmap unzip wget lsof xz net-tools gcc make gcc-c++

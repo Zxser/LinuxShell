@@ -1,8 +1,5 @@
 #!/bin/bash
-##   2016-06-06
-## http://www.aqzt.com
-##email: ppabc@qq.com
-##robert yu
+##email: meng352247816@outlook.com  
 ##centos 6
 
 #安装Ansible，安装EPEL第三方yum源

@@ -1,14 +1,9 @@
 #!/bin/bash -e
 ################################################
-#   Todo:自动从SVN配置库获取代码，导出差异文件。  
-#   Author:归根落叶
-#   Blog:http://www.ispenn.com             
+##Email:meng352247816@outlook.com           
 ################################################
 
-#Function:  printLog()
-#Author:    归根落叶
-#Todo:  打印日志
-#Param: logInfo(日志信息)
+
 logPath="`pwd`/logs"     #日志存放路径
 function printLog(){
     local errorCode=$?

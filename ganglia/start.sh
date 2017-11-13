@@ -1,8 +1,5 @@
 #!/bin/bash
-## ganglia 2016-05-30
-## http://www.aqzt.com
-##email: ppabc@qq.com
-##robert yu
+##Email:meng352247816@outlook.com
 ##centos 6和centos 7
 
 OS_CENTOS6(){

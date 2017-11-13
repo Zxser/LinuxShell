@@ -1,8 +1,5 @@
 #!/bin/bash
-##   2016-06-06
-## http://www.aqzt.com
-##email: ppabc@qq.com
-##robert yu
+#Email:meng352247816@outlook.com
 ##centos 6
 
 #http://mirrors.sohu.com/fedora-epel/

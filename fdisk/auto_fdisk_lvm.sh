@@ -1,9 +1,7 @@
 #/bin/bash
 #########################################
 ## Linux系统LVM逻辑卷创建过程以及自动化脚本
-## http://zhangge.net/5109.html
-## email: ge#zhangge.net
-## 张戈
+##Email:meng352247816@outlook.com
 ## centos 6
 #########################################
 

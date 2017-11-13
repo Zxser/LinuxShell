@@ -1,8 +1,4 @@
 #!/bin/bash
-## 2017-03-04
-## http://www.aqzt.com
-## email: ppabc@qq.com
-## robert yu
 ## centos 6
 ## 部署redis  sentinel脚本
 ## 

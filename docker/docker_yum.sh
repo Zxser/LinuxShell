@@ -1,8 +1,6 @@
 #!/bin/bash
-## Docker配置yum源，yum安装Docker  2017-03-13
-## http://www.aqzt.com
-## email: ppabc@qq.com
-## robert yu
+## Docker配置yum源，yum安装Docker 
+#Email:meng352247816@outlook.com
 ## redhat 7
 
 tee /etc/yum.repos.d/docker.repo <<-'EOF'

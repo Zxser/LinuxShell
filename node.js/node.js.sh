@@ -1,8 +1,4 @@
 #!/bin/bash
-##   2016-06-06
-## http://www.aqzt.com
-##email: ppabc@qq.com
-##robert yu
 ##centos 6
 
 yum -y install gcc+ gcc-c++

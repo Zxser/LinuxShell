@@ -1,8 +1,4 @@
 #!/bin/bash
-## cacti 2016-09-06
-## http://www.aqzt.com
-##email: ppabc@qq.com
-##robert yu
 ##centos 6
 ##cacti搭建
 

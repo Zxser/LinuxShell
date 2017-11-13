@@ -1,13 +1,7 @@
 #!/bin/bash
 
 # AUTO SSH - Auto Login SSH Server (expect-based)
-#
-# @category Main
-# @package  AutoSSH
-# @author   Feei <wufeifei@wufeifei.com>
-# @license  Copyright (C) 2015 Feei. All Rights Reserved
-# @link     http://github.com/wufeifei/autossh
-# @install
+##Email:meng352247816@outlook.com
 #
 # $ git clone https://github.com/wufeifei/autossh.git
 # $ sudo cp autossh/autossh /usr/local/bin/

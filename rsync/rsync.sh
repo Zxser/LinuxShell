@@ -1,8 +1,4 @@
 #!/bin/bash
-## rsync限速  2016-07-14
-## http://www.aqzt.com
-##email: ppabc@qq.com
-##robert yu
 ##centos 6
 ##使用cp备份日志，比较占用IO，可以使用rsync  --bwlimit=10000限速
 

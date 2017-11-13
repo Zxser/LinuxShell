@@ -2,9 +2,6 @@
 #
 ###
 # Filename: install_redis.sh
-# Author: roguo.wei - roguo.wei@gmail.com
-# Description: 
-# Last Modified: 2016-12-09 15:39
 # Version: 1.0
 ###
 

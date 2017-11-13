@@ -1,8 +1,4 @@
 #!/bin/bash
-## snmpd.conf_centos6  2016-08-03
-## http://www.aqzt.com
-##email: ppabc@qq.com
-##robert yu
 ##centos 6
 
 yum install -y gcc  net-snmp

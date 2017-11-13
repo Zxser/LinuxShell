@@ -1,8 +1,5 @@
 #!/bin/bash
-## kafka flume 2016-06-14
-## http://www.aqzt.com
-##email: ppabc@qq.com
-##robert yu
+##Email:meng352247816@outlook.com
 ##centos 6
 ##kafka  apache-flume 搭建
 ##Flume从1.6.0开始，官方已经直接支持Kafka的sink了。这样就非常方便的可以将从Flume采集的数据，发送给Kafka。

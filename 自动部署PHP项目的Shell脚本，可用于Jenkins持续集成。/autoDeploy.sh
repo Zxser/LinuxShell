@@ -1,14 +1,9 @@
 #!/bin/bash -e
 ################################################
-#   Todo:自动部署项目代码。  
-#   Author:归根落叶
-#   Blog:http://www.ispenn.com             
+##Email:meng352247816@outlook.com          
 ################################################
 
-#Function:  printLog()
-#Author:    归根落叶
-#Todo:  打印日志
-#Param: logInfo(日志信息)
+
 logPath="`pwd`/logs"
 function printLog(){
     local errorCode=$?

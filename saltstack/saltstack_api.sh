@@ -1,8 +1,4 @@
 #!/bin/bash
-## SaltStack安装  2017-07-03
-## http://www.aqzt.com
-## email: ppabc@qq.com
-## robert yu
 ## centos 7
 
 

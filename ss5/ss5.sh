@@ -1,8 +1,4 @@
 #!/bin/bash
-## ss5实现socke代理  2016-08-10
-## http://www.aqzt.com
-## email: ppabc@qq.com
-## robert yu
 ## centos 7
 
 yum -y install gcc gcc-c++ automake make pam-devel openldap-devel cyrus-sasl-devel  openssl-devel

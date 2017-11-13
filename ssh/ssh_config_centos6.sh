@@ -1,9 +1,5 @@
 #!/bin/bash
-## SSH持久化socket  2016-07-14
-## http://www.aqzt.com
-##email: ppabc@qq.com
-##robert yu
-##centos 6
+## SSH持久化socket
 
 ##SSH持久化socket
 cat >/home/php/.ssh/config<<EOF
