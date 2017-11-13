@@ -1,0 +1,21 @@
+#!/bin/bash
+for test in a b c d e f g
+do 
+ echo "The next state is $test"
+done 
+ echo "The last state we visited was $test"
+test=connecticut
+echo "wait,now we're visiting was $test"
+
+
+
+
+
+
+
+
+
+
+
+
+

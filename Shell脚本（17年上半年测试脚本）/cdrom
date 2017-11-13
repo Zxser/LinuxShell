@@ -1,0 +1,13 @@
+#!/bin/bash
+#check cdrom
+ls -l /dev | grep cdrom
+echo "## please input  your cdrom name."&& read CD
+#Mount CD
+mount /dev/$CD /mnt/ && echo "## Mount CD successfully"
+echo "## Inpout 'Y'or'N'.
+      ## 'Y' is into /mnt."
+echo "## Inpout your choice :" && read Y 
+#Into /mnt 
+if [ $Y=Y ] || [ $Y=y ] 
+     then cd /mnt 
+fi 

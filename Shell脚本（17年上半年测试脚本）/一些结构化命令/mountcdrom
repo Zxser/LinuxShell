@@ -1,0 +1,8 @@
+#!/bin/bash
+var1=cdrom
+if ls -l /dev/$var1  |grep $var1 > /dev/null
+then 
+ echo successfully!  > /dev/null
+ mount /dev/$var1 /mnt/  |grep /dev/null
+fi
+

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+a=$1
+b=$2for ((c=$3;c<255;c++))
+do for ((d=$4;d<255;d++))
+do echo $a.$b.$c.$d>>ip.txt
+done
+done

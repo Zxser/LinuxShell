@@ -1,0 +1,9 @@
+#!/bin/bash
+var1=basketball
+var2=football
+if [ $var1 \> $var2 ]
+then 
+ echo "$var1 dayu $var2"
+else
+ echo "$var1 xiaoyu $var2"
+fi

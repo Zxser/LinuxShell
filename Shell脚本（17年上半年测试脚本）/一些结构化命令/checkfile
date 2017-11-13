@@ -1,0 +1,20 @@
+#!/bin/bash
+if [ -e $HOME ]
+then
+   echo "The project exists. is it a file?"
+if [ -f $HOME ]
+then
+   echo "Yes,it is a file"
+else 
+   echo "No,it is not a file"
+if [ -f $HOME/.bash_history  ]
+then 
+   echo " this is a file"
+  fi 
+fi 
+else 
+ echo "sorry,the object does not exist"
+fi 
+
+
+

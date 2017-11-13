@@ -1,0 +1,17 @@
+#!/bin/bash
+for test in a b c d e f g h i
+do
+  echo The next state is $test
+done
+
+
+
+
+
+
+
+
+
+
+
+

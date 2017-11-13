@@ -1,0 +1,13 @@
+#!/bin/bash
+aaa=/etc/shadow
+if [ -f $aaa ]
+ then
+   if [ -r $aaa  ]
+then
+   tail $aaa
+else
+   echo "sorry.i am unable to read the $aaa"
+fi
+else
+   echo "sorry,the file $aaa does not exist"
+fi

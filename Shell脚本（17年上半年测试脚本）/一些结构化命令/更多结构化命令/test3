@@ -1,0 +1,5 @@
+#!/bin/bash
+for test in  nvidia "meng qingyu" "wang sicong"
+do 
+ echo "Now going to $test"
+done 

@@ -1,0 +1,6 @@
+#!/bin/bash
+if data 
+echo $?
+then 
+echo "success"
+fi

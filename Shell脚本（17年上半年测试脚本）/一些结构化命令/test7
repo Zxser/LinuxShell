@@ -1,0 +1,8 @@
+#!/bin/bash
+var1=mqy
+if [ $USER != $var1  ]
+then 
+   echo "This is not  $var1"
+else
+   echo "welcome  $var1 "
+fi

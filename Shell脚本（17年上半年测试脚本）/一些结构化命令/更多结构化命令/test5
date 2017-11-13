@@ -1,0 +1,6 @@
+#!/bin/bash
+file="states"
+for mqy in  `cat $file`
+do
+ echo "he is $mqy"
+done

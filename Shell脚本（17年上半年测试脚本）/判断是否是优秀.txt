@@ -1,0 +1,8 @@
+#!/bin/bash	
+read -p  "Enter you score （0-100）：" GRADE
+if   [ $GRADE -ge 85 ] && [$GRADE -le 100 ]; then 
+ echo "$GRADE is 优秀"
+elif [$GRADE  -ge 70 ] &&  [$GRADE -le 84 ] ; then 	
+ echo "$GRADE is 及格"
+else echo "$GRADE is Fail"
+fi

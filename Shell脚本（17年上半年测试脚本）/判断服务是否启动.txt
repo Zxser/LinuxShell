@@ -1,0 +1,10 @@
+#!/bin/bash
+##作用：检测服务是否启动，服务以参数方式提交
+ser=`/usr/bin/pgrep $1`
+if [ "$ser" != "" ]
+then
+echo "The $1 service is running."
+else
+echo "The $1 service is NOT running."
+/sbin/service $1 start
+fi

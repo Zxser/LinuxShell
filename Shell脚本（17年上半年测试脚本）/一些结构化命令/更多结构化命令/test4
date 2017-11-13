@@ -1,0 +1,7 @@
+#!/bin/bash
+list="alc aaa alb MIY abc"
+list=$list" connect"
+for state in $list
+do 
+ echo "Have you ever visited $state?"
+done 

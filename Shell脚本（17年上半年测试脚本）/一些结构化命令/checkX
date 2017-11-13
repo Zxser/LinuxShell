@@ -1,0 +1,16 @@
+#!/bin/bash
+m1=/mqy/m1
+if [ -x $m1 ]
+then 
+   echo "you can run the script"
+   cat $m1
+else
+   echo "sorry,"
+fi
+
+
+
+
+
+
+

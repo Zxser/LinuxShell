@@ -1,0 +1,10 @@
+#!/bin/bash
+if   [ -d $HOME ] && [ -w $HOME/testing ]
+then
+   echo "yes"
+else
+  echo "No"
+fi
+
+
+

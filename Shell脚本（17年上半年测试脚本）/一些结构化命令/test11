@@ -1,0 +1,9 @@
+#!/bin/bash
+testuser=root
+if cat /etc/passwd | grep $testuser
+then
+ echo The files for user $testuser are:
+ ls -a /$testuser/.b*
+else
+  echo "The user name $testuser does not exist on this system"
+fi

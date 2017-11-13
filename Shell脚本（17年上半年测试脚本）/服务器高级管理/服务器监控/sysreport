@@ -1,0 +1,21 @@
+#!/bin/bash
+#Capture_status - Gather System Performance Statics
+##################################################
+#Set Scripts Variables
+#$REPORT_FILE = /var/systemreport/report.csv
+#MAIL= mail -s "system moperation status" root
+DATE=`date +%m/%d/%y`
+TIME=`date +%k:%m:%s`
+#
+##################################################
+USERS=`uptime | sed 's/users.*$//' | gawk '{print $NF}'`
+LOAD=`uptime | gawk '{print $NF}'`
+FREE=`vmstat 1 2 | sed -n '/[0-9]/p' |  sed -n '2p' |
+gawk '{print $4}'`
+IDLE=`vmstat 1 2 | sed -n '/[0-9]/p' |  sed -n '2p' |
+gawk '{print $15}'`
+#
+##################################################
+# Send  system moperation status  to  mail
+#
+echo "$DATE.$TIME--$USERS.$LOAD.$FREE.$IDLE" >> /var/systemreport/report.csv

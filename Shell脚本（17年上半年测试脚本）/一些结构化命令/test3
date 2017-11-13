@@ -1,0 +1,9 @@
+#!/bin/bash
+m=rooter
+if grep $m /etc/passwd 
+then 
+   echo yonghu $m debash wenjianzai:
+   ls -a /$m/.b*
+fi 
+echo  yonghu $m bucunzaide
+  

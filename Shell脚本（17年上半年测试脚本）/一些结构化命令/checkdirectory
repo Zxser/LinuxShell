@@ -1,0 +1,7 @@
+#!/bin/bash
+if [ -d /etc ]
+then 
+  echo "Your etc directory exists"
+else 
+   echo "There is a problem with your etc directory"
+fi 

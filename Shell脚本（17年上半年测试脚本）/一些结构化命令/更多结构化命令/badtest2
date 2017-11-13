@@ -1,0 +1,5 @@
+#!/bin/bash
+for test in  ab\'c d e f g 
+do 
+ echo "Now going to $test"
+done 
