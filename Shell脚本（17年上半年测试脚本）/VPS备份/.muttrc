@@ -1,0 +1,4 @@
+set from = "meng352247816@gmail.com"
+set realname = "Alex"
+set smtp_url = "smtp://meng352247816@smtp.gmail.com:587/"
+set smtp_pass = "Meng352247816.."
