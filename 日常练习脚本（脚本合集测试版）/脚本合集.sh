@@ -3295,8 +3295,29 @@ ps -aux | grep rsync
 
 
 
-
-aaaa
+#rsync同步的Shell脚本
+#!/bin/bash
+echo "********** These files will be sync **********"
+rsync -avn -e 'ssh -p6602' /htdocs/www/ 192.168.1.166:/htdocs/www/ --exclude-from=/apps/exclude.file
+echo "********** Sure you want to sync?(y/n)"
+while :
+do
+read input
+case $input in
+Y|y)
+echo  "Start sync"
+rsync -avz -e 'ssh -p6611' htdocs/www/ 192.168.1.166:/htdocs/www/ --exclude-from=/apps/exclude.file
+exit
+;;
+N|n)
+echo "Quit"
+exit
+;;
+*)
+echo "Please input y/n"
+;;
+esac
+done
 #Congratulations，you have successfully recertified as a CCIE！ periodi recertification
 #ensures that the CCIE designation remains a vaild measure of expertise in the networking
 #industry
