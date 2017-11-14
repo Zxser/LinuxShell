@@ -3378,16 +3378,27 @@ esac
 
 #case判断输入的数值类型
 #!/bin/bash
-read -p "please input a char" char
+char () {
+    echo "you input is 字母"
+}
+number () {
+    echo "you input is 数字"
+}
+qita () {
+    echo "you input is qita"
+}
+read -p "please input a char:" char
 case "$char" in
         [a-z]|[A-Z])
-            echo "your input is a zimu"
+            char
+            ;;      
         [0-9])
+            
+            number
             ;;
-            echo "your input is a number"
         *)
-            ;;
-            echo "your input is a other"
+            qita
+            
 esac
 
 
