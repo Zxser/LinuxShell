@@ -3348,7 +3348,7 @@ stop() {
     pkill rsync;sleep 1;pkill rsync
     #if [ $? -eq 0 -a `ps -ef | grep -v grep | grep rsync | wc -l` -lt 1 ];then
     if [ `ps -ef | grep -v grep | grep "rsync --daemon" | wc -l` -lt 1 ];then
-}
+
     sleep 1
     else
         action "stopping Rsync: `ps -ef | grep -v grep | grep "rsync --daemon" | wc -l` " /bin/false
