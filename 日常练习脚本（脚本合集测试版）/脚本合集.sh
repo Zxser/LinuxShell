@@ -3380,7 +3380,7 @@ esac
 #!/bin/bash
 read -p "please input a char" char
 case "$char" in
-        [a-z][A-Z])
+        [a-z]|[A-Z])
             echo "your input is a zimu"
         [0-9])
             ;;
@@ -3390,6 +3390,19 @@ case "$char" in
             echo "your input is a other"
 esac
 
+
+    #判断用户
+    case $USER in 
+        root|mengqingyu)
+            echo "welcome.$USER"
+            echo "please enjoy your visit";;
+        testing)
+            echo "Special testing account";;
+        jeccia) 
+            echo "Do not forget to log off when you're done";;
+        *)
+            echo "sorry,you are not allowed here"
+        esac
 
 
 
