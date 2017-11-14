@@ -59,7 +59,7 @@ def get_json2(date,rk,CK,r):
 
 def get_parameter(date):
     '''获取重要的参数
-    date:日期，格式示例：2016-05-13
+    date:日期，格式示例：2017-07-13
     '''
     url='http://flights.ctrip.com/booking/hrb-sha-day-1.html?ddate1=%s'%date
     res=urllib2.urlopen(url).read()
