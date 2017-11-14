@@ -3376,6 +3376,22 @@ esac
 
 
 
+#case判断输入的数值类型
+#!/bin/bash
+read -p "please input a char" char
+case "$char" in
+        [a-z][A-Z])
+            echo "your input is a zimu"
+        [0-9])
+            ;;
+            echo "your input is a number"
+        *)
+            ;;
+            echo "your input is a other"
+esac
+
+
+
 
 
 
