@@ -3407,6 +3407,41 @@ esac
 
 
 
+#位置变量脚本练习
+#!/bin/bash
+        echo "this is scripts 第一个参数：$1"
+        echo "this is scripts 第er个参数：$2"
+        echo "this is scripts 第san个参数：$3"
+        echo "this is scripts 第si个参数：$4"
+echo "This is scripts 的名字：$0"
+执行结果
+sh work  a b c cd
+[root@web01 ~]# sh work  a b c cd
+this is scripts 第一个参数：a
+this is scripts 第er个参数：b
+this is scripts 第san个参数：c
+this is scripts 第si个参数：cd
+This is scripts 的名字：work
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #Congratulations，you have successfully recertified as a CCIE！ periodi recertification
