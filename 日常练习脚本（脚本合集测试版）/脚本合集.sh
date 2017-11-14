@@ -3318,6 +3318,68 @@ echo "Please input y/n"
 ;;
 esac
 done
+
+Rsync服务启动脚本
+#!/bin/bash
+#
+# rsyncd      This shell script takes care of starting and stopping
+#             standalone rsync.
+#
+# chkconfig: 35 13 91
+# description: rsync is a file transport daemon
+# processname: rsync
+# config: /etc/rsyncd.conf
+
+# Source function library
+. /etc/rc.d/init.d/functions
+
+start() {
+    # Start daemons.
+    rsync --daemon
+    if [ $? -eq 0 -a `ps -ef | grep -v grep | grep rsync | wc -l` -gt 0 ];then
+        action "starting Rsync:" /bin/true
+        sleep 1
+    else
+        action "starting Rsync:" /bin/false
+        sleep 1
+    fi
+}
+stop() {
+    pkill rsync;sleep 1;pkill rsync
+    #if [ $? -eq 0 -a `ps -ef | grep -v grep | grep rsync | wc -l` -lt 1 ];then
+    if [ `ps -ef | grep -v grep | grep "rsync --daemon" | wc -l` -lt 1 ];then
+}
+    sleep 1
+    else
+        action "stopping Rsync: `ps -ef | grep -v grep | grep "rsync --daemon" | wc -l` " /bin/false
+        sleep 1
+    fi
+}
+case "$1" in 
+    start)
+        start;
+    ;;
+    stop)
+        stop;
+    ;;
+    restart)
+        $0 stop;
+        $0 start;
+    ;;
+*)
+    echo $"Usage:$0 {start|stop|restart}"
+    ;;
+esac
+
+
+
+
+
+
+
+
+
+
 #Congratulations，you have successfully recertified as a CCIE！ periodi recertification
 #ensures that the CCIE designation remains a vaild measure of expertise in the networking
 #industry
