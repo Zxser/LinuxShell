@@ -3321,6 +3321,7 @@ done
 
 Rsync服务启动脚本
 #!/bin/bash
+#ls /etc/rc.d/init.d/rsyncd
 #
 # rsyncd      This shell script takes care of starting and stopping
 #             standalone rsync.
