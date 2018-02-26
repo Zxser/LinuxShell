@@ -1,7 +1,7 @@
 ﻿#!/bin/bash
-## Iptables 2016-09-23
+## Iptables 2017-09-23
 ## http://www.aqzt.com
-## email: ppabc@qq.com
+## email: meng352247816@outlook.com
 ## robert yu
 ## centos 6
 ## iptables 流量限制，可以通过调整--limit-burst 10值来控制流入 流出
