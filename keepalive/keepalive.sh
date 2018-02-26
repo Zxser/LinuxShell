@@ -2,9 +2,8 @@
 #
 ###
 # Filename: install_keepalived.sh
-# Author: roguo.wei - roguo.wei@gmail.com
 # Description: 
-# Last Modified: 2016-11-09 00:57
+# Last Modified: 2017-11-09 00:57
 # Version: 1.0
 ###
 
