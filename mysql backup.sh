@@ -7,7 +7,10 @@ DB_USERNAME="root"                   #mysql登录用户名
 DB_PASSWORD="jixieM"                 #mysql登录密码
 DATABASES=(
             "ultrax"
-            "mysql"                    #备份的数据库名
+            "mysql"
+            "information_schema"
+            "accesslog"
+            "test"                    #备份的数据库名
 )
 #=========
 echo "Bash Database Backup Tool"
