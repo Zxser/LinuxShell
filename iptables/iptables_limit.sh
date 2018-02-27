@@ -1,6 +1,5 @@
 ﻿#!/bin/bash
 ## Iptables 2017-09-23
-## http://www.aqzt.com
 ## email: meng352247816@outlook.com
 ## robert yu
 ## centos 6
