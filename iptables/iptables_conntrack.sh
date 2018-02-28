@@ -1,8 +1,5 @@
 #!/bin/bash
-## Iptables 2016-07-21
-## http://www.aqzt.com
-## email: ppabc@qq.com
-## robert yu
+## Iptables 2017-07-21
 ## centos 7
 
 

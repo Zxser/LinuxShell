@@ -1,6 +1,5 @@
 #防cc脚本
 #!/bin/bash
-#Author:ZhangGe
 #Desc:Auto Deny Black_IP Script.
 #Date:2018/2/21
 #取得参数$1为并发阈值，若留空则默认允许单IP最大50并发(实际测试发现，2M带宽，十来个并发服务器就已经无法访问了！)

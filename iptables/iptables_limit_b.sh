@@ -1,8 +1,5 @@
 ﻿#!/bin/bash
-## Iptables 2016-09-28
-## http://www.aqzt.com
-## email: ppabc@qq.com
-## robert yu
+## Iptables 2017-09-28
 ## centos 6
 ## iptables 流量限制，可以通过调整--limit-burst 10值来控制流入 流出
 ## --limit 1/s 表示每秒一次; 1/m 则为每分钟一次
