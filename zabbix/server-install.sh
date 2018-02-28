@@ -1,5 +1,5 @@
 #!/bin/sh
-echo "脚本作者:火星小刘 web:www.huoxingxiaoliu.com email:xtlyk@163.com"
+
 
 #sleep 10
 zabbix_version=3.0.9
