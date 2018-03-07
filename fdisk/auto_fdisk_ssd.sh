@@ -1,11 +1,5 @@
 #/bin/bash
-#########################################
-#Function:    auto fdisk
-#Usage:       bash auto_fdisk.sh
-#Author:      Customer service department
-#Company:     Alibaba Cloud Computing
-#Version:     4.0
-#########################################
+
 
 count=0
 tmp1=/tmp/.tmp1
