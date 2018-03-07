@@ -1,12 +1,5 @@
 #!/bin/sh
-#
-# Purpose: This script starts and stops the $DAEMON_NAME daemon
-#
-# License: GPL
-#
-# chkconfig: 345 80 30  ## Add chkconfig
-# description: Starts Kafka
-# Source function library.
+
 . /etc/rc.d/init.d/functions
 
 
