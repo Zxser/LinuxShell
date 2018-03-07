@@ -1,6 +1,5 @@
 #!/bin/bash
-###http://docs.confluent.io/1.0/kafka-rest/docs/intro.html
-##本脚本解决的需求是：Kafka http-proxy 的测试
+
 
 
 # Get a list of topics
