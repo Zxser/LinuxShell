@@ -15,3 +15,4 @@ printf "<td>%s</td><td>%s</td><td>%s</td>\n</tr>\n",  $4, $5, $6;
 }' >> /var/systemreport/webreport.html
 echo "</table></body></html>" >> /var/systemreport/webreport.html
 mutt meng352247816@outlook.com  -s "systemreport $DATE" -a /var/systemreport/webreport.html < /dev/null
+echo hello world
