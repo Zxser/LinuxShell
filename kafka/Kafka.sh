@@ -1,10 +1,5 @@
 #!/bin/bash
-## kafka  2016-06-07
-## http://www.aqzt.com
-##email: ppabc@qq.com
-##robert yu
-##centos 6
-##kafka  单独ZooKeeper 搭建
+
 
 yum install -y  curl openssh-server openssh-clients postfix cronie git nmap unzip wget lsof xz gcc make vim  curl gcc-c++ libtool
 
