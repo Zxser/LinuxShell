@@ -1,0 +1,161 @@
+1、配置Linux客户端邮件发送功能
+
+set from=1665***913@qq.com
+
+set smtp=smtp.qq.com
+
+set smtp-auth-user=1665***913@qq.com
+
+set smtp-auth-password=yslsnzvgqqtadhee QQ邮箱授权码，需要开启pop3和smtp就会生成
+
+set smtp-auth=login
+
+2、测试下是否可以使用
+
+cat /tmp/jiankong.log|mailx -v -s ‘hello‘ ‘*****@qq.com‘
+
+测试发现有时能发送，有时会退信并报以下错误：
+
+[root@www script]# smtp-server: 530 Error: A secure connection is requiered(such as ssl). More information at http://service.mail.qq.com/cgi-bin/help?id=28
+
+"/root/dead.letter" 11/325
+
+. . . message not sent.
+
+3、添加以下配置文件参数
+
+set from=1665***913@qq.com
+
+set smtp=smtp.qq.com
+
+set smtp-auth-user=1665***913@qq.com
+
+set smtp-auth-password=yslsnzvgqqtadhee QQ邮箱授权码，需要开启pop3和smtp就会生成
+
+set smtp-auth=login
+
+set smtp-use-starttls             SSL验证信息
+
+set ssl-verify=ignore              SSL验证信息
+
+set nss-config-dir=/etc/pki/nssdb/      SSL验证信息
+
+再次出现错误，错误信息为：
+
+535 Error: http://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=1001256
+
+smtp-server: 535 Error:
+
+http://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=1001256
+
+"/root/dead.letter" 11/307
+
+. . . message not sent.
+
+解决办法：
+
+在QQ邮箱首页点击，设置→账户→POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV服务，开启POP3/SMTP服务即可解决问题。
+
+再次测试发送邮件，邮件发送成功......
+
+[root@www script]# cat /tmp/jiankong.log |mailx -v -s ‘hello‘ ‘1665***913@qq.com‘
+
+Resolving host smtp.qq.com . . . done.
+
+Connecting to 14.17.57.241 . . . connected.
+
+220 smtp.qq.com Esmtp QQ Mail Server
+
+>>> EHLO www.net-leader.com.cn
+
+250-smtp.qq.com
+
+250-PIPELINING
+
+250-SIZE 73400320
+
+250-STARTTLS
+
+250-AUTH LOGIN PLAIN
+
+250-AUTH=LOGIN
+
+250-MAILCOMPRESS
+
+250 8BITMIME
+
+>>> STARTTLS
+
+220 Ready to start TLS
+
+Error in certificate: Peer‘s certificate issuer is not recognized.
+
+Comparing DNS name: "upload.mail.qq.com"
+
+Comparing DNS name: "hwsmtp.exmail.qq.com"
+
+Comparing DNS name: "hwimap.exmail.qq.com"
+
+Comparing DNS name: "cloudmx.qq.com"
+
+Comparing DNS name: "imap.exmail.qq.com"
+
+Comparing DNS name: "hwpop.exmail.qq.com"
+
+Comparing DNS name: "smtp.qq.com"
+
+SSL parameters: cipher=AES-256, keysize=256, secretkeysize=256,
+
+issuer=CN=GeoTrust SSL CA - G3,O=GeoTrust Inc.,C=US
+
+subject=CN=pop.qq.com,OU=R&D,O=Shenzhen Tencent Computer Systems Company Limited,L=Shenzhen,ST=Guangdong,C=CN
+
+>>> EHLO www.net-leader.com.cn
+
+250-smtp.qq.com
+
+250-PIPELINING
+
+250-SIZE 73400320
+
+250-AUTH LOGIN PLAIN
+
+250-AUTH=LOGIN
+
+250-MAILCOMPRESS
+
+250 8BITMIME
+
+>>> AUTH LOGIN
+
+334 VXNlcm5hbWU6
+
+>>> MTY2NTExMTkxM0BxcS5jb20=
+
+334 UGFzc3dvcmQ6
+
+>>> eXNsc256dmdxcXRhZGhlZQ==
+
+235 Authentication successful
+
+>>> MAIL FROM:<1665111913@qq.com>
+
+250 Ok
+
+>>> RCPT TO:<1665111913@qq.com>
+
+250 Ok
+
+>>> DATA
+
+354 End data with <CR><LF>.<CR><LF>
+
+>>> .
+
+250 Ok: queued as
+
+>>> QUIT
+
+221 Bye
+
+这样就不会报错，能成功发送邮件了。
