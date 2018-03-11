@@ -21,7 +21,7 @@ I like linux shell programme  ：）
 
 
 仓库脚本的使用方法：
-
+```
 1、对于脚本文件：
 
 打开需要下载的shell脚本，RAW视图模式，直接wget下载即可，也可以用curl -s 命令  
@@ -31,6 +31,6 @@ I like linux shell programme  ：）
 2、对于压缩文件
 
 打开需要下载的包，点击View Raw，即可下载  复制链接地址即可，工具可以使用wget 或者是curl -s
+```
 
-
-![Image of Yaktocat] (https://github.com/menqgingyu/LinuxShell/blob/master/images/8fbf11e1e73a05de-2048x1024.png)
+![8fbf11e1e73a05de-2048x1024.png] (https://github.com/menqgingyu/LinuxShell/blob/master/images/8fbf11e1e73a05de-2048x1024.png)
