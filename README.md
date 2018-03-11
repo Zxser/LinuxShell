@@ -33,4 +33,4 @@ I like linux shell programme  ：）
 打开需要下载的包，点击View Raw，即可下载  复制链接地址即可，工具可以使用wget 或者是curl -s
 
 
-https://github.com/menqgingyu/LinuxShell/blob/master/images/8fbf11e1e73a05de-2048x1024.png
+![Image of Yaktocat] (https://github.com/menqgingyu/LinuxShell/blob/master/images/8fbf11e1e73a05de-2048x1024.png)
