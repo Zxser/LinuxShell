@@ -8,16 +8,16 @@ welcome to Linux shell Center
 
 I like Linux
 
-I like linux shell programme  ：）
+I like linux shell programme  ：D
 
 
 万分感谢李江南老师，孙春光老师，武田田老师，谭鸣钟老师的指点！
 
-感谢胡曦文同学对我的支持！：）
+感谢胡曦文同学对我的支持！：D
 
 感谢小蘑菇一直以来对我的支持!
 
-感谢那些嘲讽我的人 ：）
+感谢那些嘲讽我的人 ：D
 
 
 仓库脚本的使用方法：
@@ -33,4 +33,3 @@ I like linux shell programme  ：）
 打开需要下载的包，点击View Raw，即可下载  复制链接地址即可，工具可以使用wget 或者是curl -s
 ```
 
-![8fbf11e1e73a05de-2048x1024.png] (https://github.com/menqgingyu/LinuxShell/blob/master/images/8fbf11e1e73a05de-2048x1024.png)
