@@ -1,0 +1,20 @@
+./configure \
+--prefix=/usr/local/php \
+--with-apxs2=/usr/local/apache2.4/bin/apxs \
+--with-config-file-path=/usr/local/php/etc  \
+--with-mysql=/usr/local/mysql \
+--with-libxml-dir \
+--with-gd \
+--with-jpeg-dir \
+--with-png-dir \
+--with-freetype-dir \
+--with-iconv-dir \
+--with-zlib-dir \
+--with-bz2 \
+--with-openssl \
+--with-mcrypt \
+--enable-soap \
+--enable-gd-native-ttf \
+--enable-mbstring \
+--enable-sockets \
+--enable-exif

@@ -1,0 +1,6 @@
+./configure \
+--prefix=/usr/local/apache2.4 \
+--with-apr=/usr/local/apr \
+--with-apr-util=/usr/local/apr-util \
+--enable-so \
+--enable-mods-shared=most
