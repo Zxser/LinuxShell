@@ -1,0 +1,131 @@
+
+加固建议
+"1、执行备份：
+#cp –p /etc/passwd /etc/passwd_bak
+#cp –p /etc/shadow /etc/shadow_bak
+#cp –p /etc/group /etc/group_bak
+2、修改文件权限：
+#chmod 0644 /etc/passwd
+#chmod 0400 /etc/shadow
+#chmod 0644 /etc/group
+"
+"步骤1
+修改文件/etc/motd的内容，如没有该文件，则创建它。
+#echo "" Authorized users only. All activity may be monitored and reported "" > /etc/motd
+可根据实际需要修改该文件的内容。
+步骤 2 修改Telnet回显信息
+修改文件/etc/issue 和/etc/issue.net中的内容：
+#echo "" Authorized users only. All activity may be monitored and reported "" > /etc/issue
+#echo "" Authorized users only. All activity may be monitored and reported "" > /etc/issue.net
+可根据实际需要修改该文件的内容。
+步骤 3 重启服务：
+# /etc/init.d/xinetd restart"
+"1、执行备份：
+#cp -p /etc/login.defs /etc/login.defs_bak
+2、修改策略设置：
+#vi /etc/login.defs
+修改PASS_MIN_LEN的值为8，修改PASS_MAX_DAYS的值为90，按要求修改PASS_MIN_DAYS/PASS_WARN_AGE的值，保存退出
+"
+"1、执行备份：
+#cp -p /etc/pam.d/system-auth /etc/pam.d/system-auth_bak
+2、创建文件/etc/security/opasswd，并设置权限：
+#touch /etc/security/opasswd
+#chown root:root /etc/security/opasswd
+#chmod 600 /etc/security/opasswd
+2、修改策略设置：
+#vi /etc/pam.d/system-auth
+在password required pam_unix.so所在行增加remember=5，保存退出；
+"
+"1、执行备份：
+#cp -p /etc/profile /etc/profile_bak
+#cp -p /etc/csh.login /etc/csh.login_bak
+#cp -p /etc/csh.cshrc /etc/csh.cshrc_bak
+#cp -p /etc/bashrc /etc/bashrc_bak
+#cp -p /root/.bashrc /root/.bashrc_bak
+#cp –p /root/.cshrc /root/.cshrc_bak
+2、修改umask设置：
+#vi /etc/profile
+#vi /etc/csh.login
+#vi /etc/csh.cshrc
+#vi /etc/bashrc
+#vi /root/.bashrc
+#vi /root/.cshrc
+将umask值修改为027(不存在,则需要增加一行umask 027)，保存退出。"
+"1、执行备份：
+#cp -p /etc/pam.d/system-auth /etc/pam.d/system-auth_bak
+2、修改策略设置：
+#vi /etc/pam.d/system-auth
+增加auth required pam_tally2.so deny=6 onerr=fail no_magic_root unlock_time=120
+到第二行。
+保存退出；
+"
+"1、执行备份：
+#cp -p /etc/passwd /etc/passwd_bak
+#cp -p /etc/shadow /etc/shadow_bak
+2、锁定无用帐户：
+#vi /etc/shadow
+在需要锁定的用户名的密码字段前面加!，如test:!$1$QD1ju03H$LbV4vdBbpw.MY0hZ2D/Im1:14805:0:99999:7:::
+3、将/etc/passwd文件中的shell域设置成/bin/false。"
+"1、执行备份：
+#cp -p /etc/pam.d/system-auth /etc/pam.d/system-auth_bak
+2、修改策略设置：
+#vi /etc/pam.d/system-auth
+可使用pam pam_cracklib module或pam_passwdqc module实现密码复杂度，两者不能同时使用。
+pam_cracklib主要参数说明:
+    tretry=N：重试多少次后返回密码修改错误
+    difok=N：新密码必需与旧密码不同的位数
+    dcredit=N：N >= 0密码中最多有多少个数字；N < 0密码中最少有多少个数字
+    lcredit=N：小写字母的个数
+    ucredit=N：大写字母的个数
+    credit=N：特殊字母的个数
+    minclass=N：密码组成(大/小字母，数字，特殊字符)
+minlen=N：新密码最短长度
+pam_passwdqc主要参数说明:
+mix:设置口令字最小长度，默认值是mix=disabled。
+max:设置口令字的最大长度，默认值是max=40。
+passphrase:设置口令短语中单词的最少个数，默认值是passphrase=3，如果为0则禁用口令短语。
+match:设置密码串的常见程序，默认值是match=4。
+similar:设置当我们重设口令时，重新设置的新口令能否与旧口令相似，它可以是similar=permit允许相似或similar=deny不允许相似。
+random:设置随机生成口令字的默认长度。默认值是random=42。设为0则禁止该功能。
+enforce:设置约束范围，enforce=none表示只警告弱口令字，但不禁止它们使用；enforce=users将对系统上的全体非根用户实行这一限制；enforce=everyone将对包括根用户在内的全体用户实行这一限制。
+non-unix:它告诉这个模块不要使用传统的getpwnam函数调用获得用户信息。
+retry:设置用户输入口令字时允许重试的次数，默认值是retry=3
+如配置密码长度最小8位，至少包含大小写字母、数字、其它字符中的两类，可做如下配置：
+password    requisite     pam_cracklib.so dcredit=-1 ucredit=-1 lcredit=-1 ocredit=-1 minclass=2 minlen=8
+password    sufficient    pam_unix.so md5 shadow nullok try_first_pass use_authtok"
+"1、执行备份：
+#cp -p /etc/hosts.allow /etc/hosts.allow_bak
+#cp -p /etc/hosts.deny /etc/hosts.deny_bak
+2、编辑/etc/hosts.allow和/etc/hosts.deny两个文件，文件的配置格式为：
+Service:host [or network/netmask],host [or network/netmask]
+#vi /etc/hosts.allow
+增加一行 service: 允许访问的IP，举例如下：
+all:192.168.4.44:allow #允许单个IP访问所有服务进程
+sshd:192.168.1.:allow #允许192.168.1的整个网段访问SSH服务进程
+#vi /etc/hosts.deny
+增加一行 sshd:all:DENY
+"
+1、编辑ntp 的配置文件： #vi /etc/ntp.conf server IP地址（提供ntp服务的机器） 
+2、去掉下列行的注释 restrict 192.168.1.0 mask 255.255.255.0 nomodify notrap 上面为该局域网的网络和掩码 
+3、启动ntp服务： #service ntp start
+"1、备份需要修改的文件
+2、执行下列命令，修改日志文件权限为合理值
+如设置文件权限为640
+#chmod 640 <filename>
+或者修改为600
+#chmod 600 <filename>"
+"修改文件/etc/motd的内容，如没有该文件，则创建它。
+#echo "" Authorized users only. All activity may be monitored and reported "" > /etc/motd
+可根据实际需要修改该文件的内容。
+"
+"1、执行备份：
+cp -p /etc/profile /etc/profile_bak
+cp -p /etc/csh.cshrc /etc/csh.cshrc_bak
+2、在/etc/profile文件增加以下两行：
+#vi /etc/profile
+TMOUT=180
+export TMOUT
+3、修改/etc/csh.cshrc文件，添加如下行：
+set autologout=30
+改变这项设置后，重新登录才能有效
+"
