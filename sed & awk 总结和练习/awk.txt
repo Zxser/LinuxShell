@@ -1,0 +1,80 @@
+awk练习题{
+
+			wang     4
+			cui      3
+			zhao     4
+			liu      3
+			liu      3
+			chang    5
+			li       2
+
+			1 通过第一个域找出字符长度为4的
+			2 当第二列值大于3时，创建空白文件，文件名为当前行第一个域$1 (touch $1)
+			3 将文档中 liu 字符串替换为 hong
+			4 求第二列的和
+			5 求第二列的平均值
+			6 求第二列中的最大值
+			7 将第一列过滤重复后，列出每一项，每一项的出现次数，每一项的大小总和
+
+			1、字符串长度
+				awk 'length($1)=="4"{print $1}'
+			2、执行系统命令
+				awk '{if($2>3){system ("touch "$1)}}'
+			3、gsub(/r/,"s",域) 在指定域(默认$0)中用s替代r  (sed 's///g')
+				awk '{gsub(/liu/,"hong",$1);print $0}' a.txt
+			4、列求和
+				awk '{a+=$2}END{print a}'
+			5、列求平均值
+				awk '{a+=$2}END{print a/NR}'
+				awk '{a+=$2;b++}END{print a,a/b}' 
+			6、列求最大值
+				awk 'BEGIN{a=0}{if($2>a) a=$2 }END{print a}'
+			7、将第一列过滤重复列出每一项，每一项的出现次数，每一项的大小总和
+				awk '{a[$1]++;b[$1]+=$2}END{for(i in a){print i,a[i],b[i]}}'
+
+
+
+
+
+
+
+
+
+
+
+
+
+2.#echo 7 8 9 2 1 | awk '{max=$1;min=$1;for (i=2;i<=NF;i++) {if(max<$i) max=$i;if(min>$i) min=$i;sum+=$i};} END {print max,min,sum}'
+
+
+
+
+
+
+#echo 7 8 9 2 1  | awk '{ sum=0; for(i=0;i++<NF;){a[i]=$i ; sum+=$i }; max=asort(a,b);print b[max],b[1],sum }'
+9 1 27
+
+
+
+#echo 7 8 9 2 1 | awk '{ for(i=0;i++<NF;)a[i]=$i ; max=asort(a,b);print b[max],b[1] }' 
+
+# echo 7 8 9 2 1 |awk '{for(i=0;i++<NF;){if($i>max){max=$i}if(i==1){min=$i}if($i<min){min=$i}sum+=$i}print max,min,sum,NF,sum/NF}'
+9 1 27 5 5.4
+
+
+#echo 7 8 9 2 1|awk '{for(i=1;i<=NF;i++)if($i>max)max=$i;print max}'
+
+#echo 7 8 9 2 1 |xargs -n1 |awk '$1>max{max=$1}  NR==1{min=$1} $1<min{min=$1} {sum+=$1} END {print max,min,sum,NR,sum/NR}'
+
+
+awk -F : 'NF-=5' /etc/passwd
+只取不要后5列
+
+awk -F : 'NF=5' /etc/passwd
+只取前5列
+
+
+
+
+
+

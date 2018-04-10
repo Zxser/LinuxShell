@@ -1,0 +1,26 @@
+1、打印文件奇数行
+sed -n 'p;n'
+sed 'n;d' 
+sed -n '$!N;P'
+sed -n '1~2p'
+awk 'i=!i'
+awk 'NR%2'
+2、打印文件偶数行
+sed -n 'n;p'
+sed -n '0~2p'
+awk '!(i=!i)'
+awk '!(NR%2)'
+3、打印文件倒数第二行
+sed -n 'N;$P;D'
+awk '{a[NR]=$0}END{print a[NR-1]}'
+awk '{a=b;b=$0}END{print a}'
+4、文件顺序倒过来（模拟tac）
+sed '1!G;h;$!d'
+awk '{a[NR]=$0}END{for(i=NR;i>=1;i--)print a[i]}'
+5、文件奇偶行换位置
+sed -n 'h;$!{n;G};p'
+awk 'getline i{print i}1'
+awk 'i=NR%2{x=$0;next}{print $0 RS x}END{if(i)print x}' 
+6、把列变为行
+sed ':t;N;s/\n/ /g;tt'
+awk '{printf("%s ",$0)}'
