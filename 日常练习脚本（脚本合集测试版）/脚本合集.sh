@@ -1325,7 +1325,7 @@ file=/etc/named.conf
 ip=$(ifconfig | grep "inet addr" |grep -v 127.0.0.1 | awk '{print $2}' | awk -F ':' '{print $2}')
 #修改DNS配置文件中监听的ip地址
 sed -i "s/127.0.0.1/$ip/" $file
-#修改允许使用本DNS服务的网段
+#修改允许使用本DNS服务的网段网段
 sed -i "s/localhost/any/" $file
 #添加zone域名
 echo -n " 请输入zone域名："

@@ -1,0 +1,201 @@
+请根据自己实际情况选择安装路径
+#!/bin/bash
+#script for red hat linux
+
+######## dependence software install ########
+YUM () {
+softname=`rpm -q binutils compat-db control-center gcc gcc-c++ glibc libXp-1.0.0 libstdc++ libstdc++-devel make openmotif |grep "not installed" |awk '{print $2}' |xargs`
+echo "--$softname--"
+sleep 2
+echo -n "是否使用yum安装补丁? [no]-->"
+read judge
+if [ "$judge" = "yes" -o "$judge" = "y" ]
+then
+yum install $softname -y
+else
+echo "没有安装补丁！开始后续设置..."
+sleep 1
+fi
+}
+######## set sysctl.conf #########
+sysctl () {
+sysfile=/etc/sysctl.conf
+mem=`free |awk '/^Mem:/ {print $2}'`
+echo "mem=$mem k"
+hmax=$[$mem*1024+52428800]
+echo "shmmax=$hmax bit(+50M)"
+sleep 1
+hall=$[$mem*1024/2+524288000]   #可以超过sga总数
+echo "shmall=$hall bit(+500M)"
+sleep 1
+if [ -z "`cat $sysfile |grep "kernel.shmmax = $hmax"`" ] || [ -z "`cat $sysfile |grep "kernel.shmmax=$hmax"`" ]
+then
+sed -i "s/^kernel.shmmax.*$/kernel.shmmax = $hmax/g" /etc/sysctl.conf
+fi
+if [ -z "`cat $sysfile |grep 'kernel.shmmax'`" ]
+then
+echo "kernel.shmmax = $hmax" >> $sysfile
+fi
+
+if [ -z "`cat $sysfile |grep 'kernel.shmall'`" ]
+then
+echo "kernel.shmall = $hall" >> $sysfile
+fi
+if [ -z "`cat $sysfile |grep "kernel.shmall = $hall"`" ] || [ -z "`cat $sysfile |grep "kernel.shmall=$hall"`" ]
+then
+sed -i "s/^kernel.shmall.*/kernel.shmall = $hall/g" $sysfile
+fi
+if [ -z "`cat $sysfile |grep 'kernel.shmmni'`" ]
+then
+echo "kernel.shmmni = 4096" >> $sysfile
+fi
+if [ -z "`cat $sysfile |grep 'kernel.sem'`" ]
+then
+echo "kernel.sem = 250 32000 100 128" >> $sysfile
+fi
+if [ -z "`cat $sysfile |grep 'fs.file-max'`" ]
+then
+echo "fs.file-max = 65536" >> $sysfile
+fi
+if [ -z "`cat $sysfile |grep 'net.ipv4.ip_local_port_range'`" ]
+then
+echo "net.ipv4.ip_local_port_range = 1024 65000" >> $sysfile
+fi
+if [ -z "`cat $sysfile |grep 'net.core.rmem_default'`" ]
+then
+echo "net.core.rmem_default=262144" >> $sysfile
+fi
+if [ -z "`cat $sysfile |grep 'net.core.rmem_max'`" ]
+then
+echo "net.core.rmem_max=262144" >> $sysfile
+fi
+if [ -z "`cat $sysfile |grep 'net.core.wmem_default'`" ]
+then
+echo "net.core.wmem_default=262144" >> $sysfile
+fi
+if [ -z "`cat $sysfile |grep 'net.core.wmem_max'`" ]
+then
+echo "net.core.wmem_max=262144" >> $sysfile
+fi
+if [ -z "`cat $sysfile |grep 'net.ipv4.tcp_sack'`" ]
+then
+echo 'net.ipv4.tcp_sack=0' >> $sysfile
+fi
+if [ -z "`cat $sysfile |grep 'net.ipv4.tcp_timestamps'`" ]
+then
+echo 'net.ipv4.tcp_timestamps=0' >> $sysfile
+fi
+if [ -z "`cat $sysfile |grep 'net.ipv4.tcp_max_syn_backlog'`" ]
+then
+echo 'net.ipv4.tcp_max_syn_backlog=8192' >> $sysfile
+fi
+if [ -z "`cat $sysfile |grep 'net.ipv4.tcp_keepalive_time'`" ]
+then
+echo 'net.ipv4.tcp_keepalive_time=120' >> $sysfile
+fi
+if [ -z "`cat $sysfile |grep 'kernel.sysrq'`" ]
+then
+echo 'kernel.sysrq=1' >> $sysfile
+fi
+if [ -z "`cat $sysfile |grep 'kernel.msgmni'`" ]
+then
+echo 'kernel.msgmni=1024' >> $sysfile
+fi
+/sbin/sysctl -p
+sleep 1
+}
+######## set limits.conf ########
+limits () {
+sed -i '/^oracle.*/d' /etc/security/limits.conf
+echo "oracle     soft    nproc   65536" >> /etc/security/limits.conf
+echo "oracle     hard    nproc   65536" >> /etc/security/limits.conf
+echo "oracle     soft    nofile  65536" >> /etc/security/limits.conf
+echo "oracle     hard    nofile  65536" >> /etc/security/limits.conf 
+if [ -z `cat /etc/pam.d/login |grep '/lib/security/pam_limits.so'`]
+then
+echo "session    required     /lib/security/pam_limits.so" >> /etc/pam.d/login
+echo "-- set limits.conf success --"
+fi
+sleep 1
+}
+########set /etc/profile########
+etc_profile () {
+echo 'if [ \$USER = "oracle" ]; then ' >> /etc/profile
+echo 'if [ \$SHELL = "/bin/ksh" ]; then' >> /etc/profile
+echo 'ulimit -p 16384' >> /etc/profile
+echo 'ulimit -n 65536' >> /etc/profile
+echo 'else' >> /etc/profile
+echo 'ulimit -u 16384 -n 65536' >> /etc/profile
+echo 'fi' >> /etc/profile
+echo 'umask 022' >> /etc/profile
+echo 'fi' >> /etc/profile
+}
+######## setup user and group ########
+ca_user () {
+groupadd -g 115 dba
+useradd -u 175 -g 115 -d /home/oracle -s /bin/bash -c "oracle software owenr" -p oracle oracle
+chown oracle:dba /data/oracle
+}
+######## set bash_profile #########
+
+bash_profile () {
+echo -n "  input oracle sid [ora10g]: "
+read ORACLE_SID
+if [ -z "$ORACLE_SID" ];then ORACLE_SID=ora10g;fi
+echo -n "input oracle install directory(ORACLE_BASE)[/data/oracle]: "
+read ORACLE_BASE
+if [ -z "$ORACLE_BASE" ];then ORACLE_BASE=/data/oracle;fi
+DATABASE_DIR=$ORACLE_BASE/oradata
+linea=`awk '/^##-/ {print NR}' /home/oracle/.bash_profile |head -1`
+lineb=`cat /home/oracle/.bash_profile | wc -l`
+/bin/sed -i "$linea,$lineb d" /home/oracle/.bash_profile
+
+echo "##------------------
+export ORACLE_BASE=$ORACLE_BASE
+export ORACLE_HOME=$ORACLE_BASE/product
+export ORACLE_SID=$ORACLE_SID" >> /home/oracle/.bash_profile
+
+mkdir -p $DATABASE_DIR
+mkdir -p $ORACLE_BASE/product
+
+echo "...ORACLE_SID=$ORACLE_SID"
+sleep 1
+echo "...ORACLE_BASE=$ORACLE_BASE"
+sleep 1
+echo "...ORACLE_HOME=$ORACLE_BASE/product"
+sleep 1
+echo "Later from the directory $DATABASE_DIR to create a database ..."
+sleep 1
+echo "##------------------
+export PATH=.:${PATH}:$HOME/bin:$ORACLE_HOME/bin
+export PATH=${PATH}:/usr/bin:/bin:/usr/bin/X11:/usr/local/bin
+export SPFILE_PATH=$ORACLE_HOME/dbs
+export TNS_ADMIN=$ORACLE_HOME/network/admin
+export ORA_NLS33=$ORACLE_HOME/ocommon/nls/admin/data
+export LD_LIBRARY_PATH=$ORACLE_HOME/lib
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:$ORACLE_HOME/oracm/lib
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/lib:/usr/lib:/usr/local/lib
+export CLASSPATH=$ORACLE_HOME/JRE
+export CLASSPATH=${CLASSPATH}:$ORACLE_HOME/JRE/lib
+export CLASSPATH=${CLASSPATH}:$ORACLE_HOME/jlib
+export CLASSPATH=${CLASSPATH}:$ORACLE_HOME/rdbms/jlib
+export CLASSPATH=${CLASSPATH}:$ORACLE_HOME/network/jlib
+export THREADS_FLAG=native
+export TEMP=/tmp
+export TMPDIR=/tmp
+export LIBPATH=$ORACLE_HOME/lib:$ORACLE_HOME/ctx/lib
+export ORACLE_TERM=xterm
+export LC_CTYPE=en_US.AL16UTF16
+export NLS_LANG=AMERICAN_AMERICA.US7ASCII
+export DISPLAY=127.0.0.1:1.0
+export LANG=C" >> /home/oracle/.bash_profile
+}
+##################
+YUM
+sysctl
+limits
+etc_profile
+ca_user
+bash_profile
+echo "please user 'oracle' repasswd...."
+echo ""
