@@ -1,0 +1,17 @@
+查看主机网卡流量
+ #!/bin/bash
+#network
+#LiuHuan
+while : ; do #进行while do循环
+time=’date %m”-“%d” “%k”:”%M’ #time格式化时间
+day=’date %m”-“%d’ #day格式化日期
+rx_before=’ifconfig eth0|sed -n “8”p|awk ‘{print $2}’|cut -c7-‘
+tx_before=’ifconfig eth0|sed -n “8”p|awk ‘{print $6}’|cut -c7-‘
+sleep 2 #休眠2秒
+rx_after=’ifconfig eth0|sed -n “8”p|awk ‘{print $2}’|cut -c7-‘
+tx_after=’ifconfig eth0|sed -n “8”p|awk ‘{print $6}’|cut -c7-‘
+rx_result=$[(rx_after-rx_before)/256]
+tx_result=$[(tx_after-tx_before)/256]
+echo “$time Now_In_Speed: “$rx_result”kbps Now_OUt_Speed: “$tx_result”kbps” #输出变量的值
+sleep 2 #休眠2秒
+done #结束

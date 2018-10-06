@@ -1,0 +1,5 @@
+mysqldump --single-transaction --flush-logs --master-data=2 --all-databases > fullbackup_sunday_11_PM.sql #进行一次完整备份
+  mysqladmin flush-logs #进行一次增量备份
+  mysql < fullbackup_sunday_3_AM.sql #恢复完整备份
+  mysqlbinlog bin-log.000002 bin-log.000003 | mysql #再进行恢复增量备份
+  echo“若网络出现异常，则使用另一个脚本 zengliangbeifen2”
