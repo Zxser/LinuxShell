@@ -3456,16 +3456,5 @@ This is scripts 的名字：work
 
 
 
-#Congratulations，you have successfully recertified as a CCIE！ periodi recertification
-#ensures that the CCIE designation remains a vaild measure of expertise in the networking
-#industry
-#Your next CCIE  recertification deadline will be August 27 2019. Current recertification policies 
-#require you to pass one written expert level exam within the 24 mouths preceding you deadline. 
-#However，you may not schedule the same exam you just passwd for at least six mouths. 
-#You may take the written exam for a track different from the one you are certified 
-#in to meet the recertification requirement. Written exams are schedules through Ciscos authorized testing partner,pearson Vue.
-
-
-
 tar cvpzf backup.tgz --exclude=/proc --exclude=/lost+found --exclude=/mnt --exclude=/sys --exclude=backup.tgz /
 
